@@ -28,11 +28,6 @@ browser.visit(image_site)
 html = browser.html
 soup2 = BeautifulSoup(html, 'html.parser')
 
-a = soup2.find_all('a', class_='button fancybox')[0]["data-fancybox-href"]
-a
-my_image_url = jpl_site + a
-print(my_image_url)
-
 tables = pd.read_html('https://space-facts.com/mars/')
 
 mars_facts = tables[0]
@@ -77,7 +72,6 @@ print(hemisphere_image_urls)
 mars_dict = {
     "news_title": title,
     "news_p": p,
-    "featured_image_url": my_image_url,
     "fact_table": str(mars_html_table),
     "hemisphere_images": hemisphere_image_urls
         }
